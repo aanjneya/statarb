@@ -29,14 +29,14 @@ A critical phase of this research involved a multi-core optimization of the stra
 > ![Initial 7D Landscape](assets/graph.png) 
 > *(Phase 1: Optimizer crowding the upper boundaries of `lookback` and `entry_z1` and lower boundary of `t1_weight`)*
 
-**Phase 2: Expanded Parameter Boundaries** Recognizing the artificial constraint, I systematically widened the parameter space, stretching the `lookback` limit to 1008 days (4 years), `entry_z1` to 3.5, and `t1_weight`'s lower limit to 0.5. The updated landscape demonstrates a much healthier, centralized distribution of high-performing trials, proving the algorithm was finally able to locate the true global maxima rather than getting bottlenecked by arbitrary ceilings.
+**Phase 2: Expanded Parameter Boundaries** Recognizing the artificial constraint, I systematically widened the parameter space, stretching the `lookback` limit to 1008 days (4 years), `entry_z1` to 3.5, and `t1_weight`'s lower limit to 0.5. The updated landscape demonstrates a much centralized distribution of high-performing trials, proving the algorithm was finally able to locate the true global maxima instead of getting bottlenecked by arbitrary ceilings.
 
 > ![Expanded 7D Landscape](assets/graph_optimised.png)
 > *(Phase 2: A stable, centralized distribution of high-performing parameter sets after boundary expansion)*
 
 ### 2. Feature Importance: What Actually Drives Alpha?
 
-Expanding the boundaries didn't just yield better returns; it fundamentally changed the mechanics of the strategy. This is visible in the Hyperparameter Importance analysis (calculated via fANOVA / Random Forest feature importance).
+Expanding the boundaries fundamentally changed the mechanics of the strategy. This is visible in the Hyperparameter Importance analysis (calculated via fANOVA / Random Forest feature importance).
 
 * **Before Boundary Expansion:** The system was starved of historical context (capped at 504 days). To compensate, it over-relied on extreme entry thresholds to find profitability, giving `entry_z1` a massive **0.51** importance weighting.
 > ![Old Parameter Weightage](assets/param.png)
